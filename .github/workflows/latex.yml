@@ -1,0 +1,26 @@
+name: Build LaTeX document
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Installer TeX Live
+      run: sudo apt-get update && sudo apt-get install -y texlive-full
+
+    - name: Compiler le document LaTeX
+      run: pdflatex bulletpoints.tex
+
+    - name: Uploader le PDF compilé
+      uses: actions/upload-artifact@v3
+      with:
+        name: bulletpoints-pdf
+        path: bulletpoints.pdf
+
