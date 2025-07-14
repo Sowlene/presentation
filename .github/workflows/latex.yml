@@ -12,14 +12,9 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: Installer TeX Live
-      run: sudo apt-get update && sudo apt-get install -y texlive-full
-
     - name: Compiler le document LaTeX
-      run: pdflatex bulletpoints.tex
-
-    - name: Uploader le PDF compilé
-      uses: actions/upload-artifact@v4   # <-- passage de v3 à v4 ici
+      uses: dante-ev/latex-action@v2
       with:
-        name: bulletpoints-pdf
-        path: bulletpoints.pdf
+        root_file: bulletpoints.tex
+        compiler: pdflatex
+
