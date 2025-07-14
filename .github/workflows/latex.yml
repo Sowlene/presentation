@@ -19,8 +19,7 @@ jobs:
       run: pdflatex bulletpoints.tex
 
     - name: Uploader le PDF compilé
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4   # <-- passage de v3 à v4 ici
       with:
         name: bulletpoints-pdf
         path: bulletpoints.pdf
-
