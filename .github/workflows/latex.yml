@@ -19,5 +19,5 @@ jobs:
     - name: Uploader le PDF compilé
       uses: actions/upload-artifact@v4
       with:
-        name: bulletpoints-pdf
-        path: bulletpoints.pdf
+        name: presentation-pdf
+        path: presentation.pdf
